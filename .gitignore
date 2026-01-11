@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+*.jsonl
+dpdsl_audit.jsonl
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Development & Test files
+test_*.py
+test_*.txt
+debug_*.py
+*_test.py
+verify_*.bat
+
+# Documentation (keep only README.md)
+ARCHITECTURE.md
+FIXES_APPLIED.md
+QUICKSTART.md
+SETUP_COMPLETE.md
+START_HERE.md
+USER_GUIDE.md
+# *.interp
+# *.tokens
+# DPDSLLexer.py
+# DPDSLParser.py
+# DPDSLVisitor.py
+# DPDSLListener.py
