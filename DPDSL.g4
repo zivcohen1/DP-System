@@ -34,8 +34,8 @@ from_clause
     ;
 
 table_source
-    : identifier (AS? alias=identifier)?                      # SimpleTable
-    | identifier join_type? JOIN identifier (AS? alias=identifier)? ON expression  # JoinTable
+    : identifier (AS? alias=identifier)?                                              # SimpleTable
+    | identifier (AS? alias1=identifier)? join_type? JOIN identifier (AS? alias2=identifier)? ON expression  # JoinTable
     ;
 
 join_type
@@ -61,7 +61,7 @@ limit_clause
 /* ===== LEXER RULES ===== */
 
 // Operators (before keywords to avoid conflicts)
-operator: '+' | '-' | '*' | '/' | '>' | '<' | '=' | '>=' | '<=' | '!=' ;
+operator: '+' | '-' | '*' | '/' | '>' | '<' | '=' | '>=' | '<=' | '!=' | AND | OR | LIKE ;
 
 // Budget (epsilon value)
 budget: FLOAT | INT ;
@@ -81,6 +81,9 @@ INNER: [Ii][Nn][Nn][Ee][Rr] ;
 LEFT: [Ll][Ee][Ff][Tt] ;
 RIGHT: [Rr][Ii][Gg][Hh][Tt] ;
 FULL: [Ff][Uu][Ll][Ll] ;
+AND: [Aa][Nn][Dd] ;
+OR: [Oo][Rr] ;
+LIKE: [Ll][Ii][Kk][Ee] ;
 
 // Labels - case insensitive
 label: PRIVATE | PUBLIC ;
@@ -101,6 +104,7 @@ ID: [a-zA-Z_][a-zA-Z0-9_]* ;
 
 INT: [0-9]+ ;
 FLOAT: '-'? [0-9]+ '.' [0-9]+ ;
+STRING: '\'' (~['\r\n])* '\'' ;
 
 // Whitespace
 WS: [ \t\r\n]+ -> skip ;

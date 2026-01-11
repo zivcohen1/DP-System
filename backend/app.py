@@ -188,7 +188,7 @@ def get_examples():
         },
         {
             'title': 'Top 10 employees with highest budgets',
-            'query': 'SELECT employee_id, SUM(PRIVATE budget OF [1.0]) FROM projects GROUP BY PUBLIC employee_id LIMIT 10',
+            'query': 'SELECT id, SUM(PRIVATE budget OF [1.0]) FROM projects GROUP BY PUBLIC id LIMIT 10',
             'description': 'Aggregate budget by employee with DP, limit to top 10'
         },
         {
@@ -200,7 +200,26 @@ def get_examples():
             'title': 'Max salary with custom epsilon',
             'query': 'SELECT MAX(PRIVATE Salary OF [0.5]) FROM employees',
             'description': 'Maximum salary with lower privacy budget'
+        },
+        {
+            'title': 'Average salary per project',
+            'query':'SELECT PUBLIC projects.project_name, AVG(PRIVATE employees.Salary OF [1.0])'
+            ' FROM employees JOIN projects  ON employees.id = projects.employee_id GROUP BY PUBLIC'
+            ' projects.project_name limit 4',
+            'description': 'Average salary grouped by project name with DP'
+        },
+        {
+            'title': 'Emails of employees with salary over 80k',
+            'query': 'SELECT Email FROM employees WHERE Salary > 80000',
+            'description': 'Retrieve emails of high-salary employees'
+        },
+        {
+
+            'title': 'Count engineers in California',
+            'query': "SELECT COUNT(*) FROM employees WHERE State = 'CA' AND job_title LIKE '%Engineering%'",
+            'description': 'Count number of employees in California with Engineering in their job title'
         }
+        
     ]
     return jsonify({'examples': examples})
 

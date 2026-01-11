@@ -106,6 +106,11 @@ class HIPAAComplianceChecker:
             if col in self.prohibited_cols:
                 return False, f"🚫 HIPAA VIOLATION: Direct access to PII column '{col}' is prohibited"
         
+        # Check for sensitive columns accessed without PRIVATE label
+        sensitive_without_private = self._check_sensitive_columns_require_private(query)
+        if sensitive_without_private:
+            return False, f"🚫 PRIVACY VIOLATION: Column '{sensitive_without_private}' must use PRIVATE label (e.g., 'AVG(PRIVATE {sensitive_without_private} OF [1.0])')"
+        
         # Check for ORDER BY on sensitive columns with LIMIT
         if self._has_risky_order_by_limit(query):
             return False, "🚫 BLOCKED: ORDER BY with LIMIT could enable re-identification of individuals"
@@ -115,6 +120,30 @@ class HIPAAComplianceChecker:
             return False, "🚫 BLOCKED: LIMIT 1 without aggregation could identify specific individuals"
         
         return True, None
+    
+    def _check_sensitive_columns_require_private(self, query: str) -> Optional[str]:
+        """Check if sensitive columns are used without PRIVATE label"""
+        # Find all aggregation functions with their arguments
+        agg_pattern = r'(AVG|SUM|MAX|MIN|COUNT)\s*\(\s*(?!PRIVATE\s+)([^)]+)\)'
+        matches = re.finditer(agg_pattern, query, re.IGNORECASE)
+        
+        for match in matches:
+            func_name = match.group(1).upper()
+            arg = match.group(2).strip()
+            
+            # Skip COUNT(*)
+            if func_name == 'COUNT' and arg == '*':
+                continue
+            
+            # Extract column name from argument (handle MIN(col, bound) case)
+            col_match = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', arg)
+            if col_match:
+                col_name = col_match.group(1)
+                # Check if it's a sensitive column
+                if col_name in self.config.SENSITIVE_COLUMNS:
+                    return col_name
+        
+        return None
     
     def _extract_selected_columns(self, query: str) -> Set[str]:
         """Extract column names from SELECT clause"""
@@ -482,48 +511,45 @@ class DPDSL_Rewriter_Visitor(DPDSLVisitor):
             return identifiers[0].getText()
     
     def get_rewritten_sql(self) -> str:
-        # Manually reconstruct SQL with proper spacing from token stream
-        sql_parts = []
-        prev_token_text = None
+        # Get the rewritten text using ANTLR's rewriter
+        rewritten = self.rewriter.getDefaultText()
         
-        for i, token in enumerate(self.token_stream.tokens):
-            if token.type == -1:  # EOF
-                break
-            if token.channel != 0:  # Skip whitespace/comment tokens
-                continue
-                
-            # Check if this token was rewritten
-            text = token.text
-            if i in self.rewriter.programs.get(self.rewriter.DEFAULT_PROGRAM_NAME, {}):
-                ops = self.rewriter.programs[self.rewriter.DEFAULT_PROGRAM_NAME][i]
-                if ops:
-                    text = ops[-1].text if hasattr(ops[-1], 'text') else str(ops[-1])
-            
-            # Add space before this token if needed
-            if sql_parts and prev_token_text not in ['(', '.', '['] and text not in [')', ',', '.', ']', '*']:
-                sql_parts.append(' ')
-            
-            sql_parts.append(text)
-            prev_token_text = text
+        # Remove PRIVATE/PUBLIC labels and OF [...] budget annotations
+        rewritten = re.sub(r'\bPRIVATE\b\s*', '', rewritten, flags=re.IGNORECASE)
+        rewritten = re.sub(r'\bPUBLIC\b\s*', '', rewritten, flags=re.IGNORECASE)  
+        rewritten = re.sub(r'OF\s*\[[^\]]+\]\s*', '', rewritten)
         
-        sql = ''.join(sql_parts)
-        logger.debug(f"Reconstructed SQL: '{sql}'")
+        # Ensure proper spacing around keywords
+        rewritten = re.sub(r'(\w)(SELECT|FROM|WHERE|GROUP|ORDER|LIMIT|JOIN|ON|LIKE)', r'\1 \2', rewritten, flags=re.IGNORECASE)
+        rewritten = re.sub(r'(SELECT|FROM|WHERE|BY|LIMIT|JOIN|ON|AND|OR|LIKE)(\w)', r'\1 \2', rewritten, flags=re.IGNORECASE)
         
-        # Remove DP annotations
-        sql = re.sub(r'OF\s*\[[^\]]+\]', '', sql)
-        sql = re.sub(r'\bPRIVATE\b', '', sql, flags=re.IGNORECASE)
-        sql = re.sub(r'\bPUBLIC\b', '', sql, flags=re.IGNORECASE)
+        # Preserve multi-word keywords
+        rewritten = re.sub(r'GROUP\s*BY', 'GROUP BY', rewritten, flags=re.IGNORECASE)
+        rewritten = re.sub(r'ORDER\s*BY', 'ORDER BY', rewritten, flags=re.IGNORECASE)
         
-        # Clean up spaces
-        sql = re.sub(r'\s+', ' ', sql)
-        sql = re.sub(r'GROUP\s*BY', 'GROUP BY', sql, flags=re.IGNORECASE)
-        sql = re.sub(r'ORDER\s*BY', 'ORDER BY', sql, flags=re.IGNORECASE)
-        sql = re.sub(r'\s*,\s*', ', ', sql)
-        sql = re.sub(r'\s*\.\s*', '.', sql)
-        sql = re.sub(r'\(\s+', '(', sql)
-        sql = re.sub(r'\s+\)', ')', sql)
+        # Collapse multiple spaces
+        rewritten = re.sub(r'\s+', ' ', rewritten)
         
-        return sql.strip()
+        # Fix multi-word keywords again after space collapse
+        rewritten = re.sub(r'GROUPBY', 'GROUP BY', rewritten, flags=re.IGNORECASE)
+        rewritten = re.sub(r'ORDERBY', 'ORDER BY', rewritten, flags=re.IGNORECASE)
+        
+        # Clean up spacing around punctuation
+        rewritten = re.sub(r'\s*\(\s*', '(', rewritten)
+        rewritten = re.sub(r'\s*\)\s*', ') ', rewritten)
+        rewritten = re.sub(r'\s*,\s*', ', ', rewritten)
+        rewritten = re.sub(r'\s*\.\s*', '.', rewritten)
+        rewritten = re.sub(r'\)\s*\+', ') +', rewritten)
+        rewritten = re.sub(r'\s*=\s*', ' = ', rewritten)
+        
+        # Ensure space around AND/OR operators
+        rewritten = re.sub(r'(\w)AND(\w)', r'\1 AND \2', rewritten, flags=re.IGNORECASE)
+        rewritten = re.sub(r'(\w)OR(\w)', r'\1 OR \2', rewritten, flags=re.IGNORECASE)
+        
+        # Final space cleanup
+        rewritten = re.sub(r'\s+', ' ', rewritten)
+        
+        return rewritten.strip()
 
 
 # === MAIN REWRITER CLASS ===
@@ -536,8 +562,15 @@ class DPDSLRewriter:
         result, error = rewriter.execute_query(query, user_id)
     """
     
-    def __init__(self, db_connection: sqlite3.Connection, config: DPDSLConfig = None):
-        self.conn = db_connection
+    def __init__(self, db_connection, config: DPDSLConfig = None):
+        # Support both connection objects and file paths
+        if isinstance(db_connection, str):
+            self.conn = sqlite3.connect(db_connection)
+            self._owns_connection = True
+        else:
+            self.conn = db_connection
+            self._owns_connection = False
+            
         self.config = config or DPDSLConfig()
         self.hipaa_checker = HIPAAComplianceChecker(self.config)
         self.audit_logger = AuditLogger()

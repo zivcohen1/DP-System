@@ -1,4 +1,4 @@
-# Generated from DPDSL.g4 by ANTLR 4.13.1
+# Generated from DPDSL.g4 by ANTLR 4.13.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,44,175,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,47,181,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,1,0,1,0,1,0,3,0,38,8,0,1,0,3,0,41,
         8,0,1,0,3,0,44,8,0,1,0,1,0,1,1,1,1,1,1,1,1,5,1,52,8,1,10,1,12,1,
@@ -19,56 +19,59 @@ def serializedATN():
         3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,3,3,93,8,3,1,3,1,3,1,3,1,3,5,3,
         99,8,3,10,3,12,3,102,9,3,1,4,1,4,1,4,3,4,107,8,4,1,5,1,5,1,5,1,5,
         5,5,113,8,5,10,5,12,5,116,9,5,1,6,1,6,3,6,120,8,6,1,6,3,6,123,8,
-        6,1,6,1,6,3,6,127,8,6,1,6,1,6,1,6,3,6,132,8,6,1,6,3,6,135,8,6,1,
-        6,1,6,1,6,3,6,140,8,6,1,7,1,7,1,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,5,
-        9,152,8,9,10,9,12,9,155,9,9,1,10,3,10,158,8,10,1,10,1,10,1,11,1,
-        11,1,11,1,12,1,12,1,13,1,13,1,14,1,14,1,15,1,15,1,16,1,16,1,16,0,
-        1,6,17,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,0,5,1,0,27,
-        30,2,0,3,3,8,16,1,0,39,40,1,0,31,32,1,0,33,37,182,0,34,1,0,0,0,2,
-        47,1,0,0,0,4,56,1,0,0,0,6,92,1,0,0,0,8,103,1,0,0,0,10,108,1,0,0,
-        0,12,139,1,0,0,0,14,141,1,0,0,0,16,143,1,0,0,0,18,146,1,0,0,0,20,
-        157,1,0,0,0,22,161,1,0,0,0,24,164,1,0,0,0,26,166,1,0,0,0,28,168,
-        1,0,0,0,30,170,1,0,0,0,32,172,1,0,0,0,34,35,3,2,1,0,35,37,3,10,5,
-        0,36,38,3,16,8,0,37,36,1,0,0,0,37,38,1,0,0,0,38,40,1,0,0,0,39,41,
-        3,18,9,0,40,39,1,0,0,0,40,41,1,0,0,0,41,43,1,0,0,0,42,44,3,22,11,
-        0,43,42,1,0,0,0,43,44,1,0,0,0,44,45,1,0,0,0,45,46,5,0,0,1,46,1,1,
-        0,0,0,47,48,5,17,0,0,48,53,3,4,2,0,49,50,5,1,0,0,50,52,3,4,2,0,51,
-        49,1,0,0,0,52,55,1,0,0,0,53,51,1,0,0,0,53,54,1,0,0,0,54,3,1,0,0,
-        0,55,53,1,0,0,0,56,61,3,6,3,0,57,59,5,23,0,0,58,57,1,0,0,0,58,59,
-        1,0,0,0,59,60,1,0,0,0,60,62,3,32,16,0,61,58,1,0,0,0,61,62,1,0,0,
-        0,62,5,1,0,0,0,63,64,6,3,-1,0,64,65,3,30,15,0,65,66,5,2,0,0,66,67,
-        5,3,0,0,67,68,5,4,0,0,68,93,1,0,0,0,69,70,3,30,15,0,70,71,5,2,0,
-        0,71,77,3,6,3,0,72,73,5,24,0,0,73,74,5,5,0,0,74,75,3,26,13,0,75,
-        76,5,6,0,0,76,78,1,0,0,0,77,72,1,0,0,0,77,78,1,0,0,0,78,79,1,0,0,
-        0,79,80,5,4,0,0,80,93,1,0,0,0,81,83,3,28,14,0,82,81,1,0,0,0,82,83,
-        1,0,0,0,83,84,1,0,0,0,84,93,3,8,4,0,85,86,5,2,0,0,86,87,3,6,3,0,
-        87,88,5,4,0,0,88,93,1,0,0,0,89,93,5,39,0,0,90,93,5,40,0,0,91,93,
-        5,44,0,0,92,63,1,0,0,0,92,69,1,0,0,0,92,82,1,0,0,0,92,85,1,0,0,0,
-        92,89,1,0,0,0,92,90,1,0,0,0,92,91,1,0,0,0,93,100,1,0,0,0,94,95,10,
-        5,0,0,95,96,3,24,12,0,96,97,3,6,3,6,97,99,1,0,0,0,98,94,1,0,0,0,
-        99,102,1,0,0,0,100,98,1,0,0,0,100,101,1,0,0,0,101,7,1,0,0,0,102,
-        100,1,0,0,0,103,106,3,32,16,0,104,105,5,7,0,0,105,107,3,32,16,0,
-        106,104,1,0,0,0,106,107,1,0,0,0,107,9,1,0,0,0,108,109,5,18,0,0,109,
-        114,3,12,6,0,110,111,5,1,0,0,111,113,3,12,6,0,112,110,1,0,0,0,113,
-        116,1,0,0,0,114,112,1,0,0,0,114,115,1,0,0,0,115,11,1,0,0,0,116,114,
-        1,0,0,0,117,122,3,32,16,0,118,120,5,23,0,0,119,118,1,0,0,0,119,120,
-        1,0,0,0,120,121,1,0,0,0,121,123,3,32,16,0,122,119,1,0,0,0,122,123,
-        1,0,0,0,123,140,1,0,0,0,124,126,3,32,16,0,125,127,3,14,7,0,126,125,
-        1,0,0,0,126,127,1,0,0,0,127,128,1,0,0,0,128,129,5,25,0,0,129,134,
-        3,32,16,0,130,132,5,23,0,0,131,130,1,0,0,0,131,132,1,0,0,0,132,133,
-        1,0,0,0,133,135,3,32,16,0,134,131,1,0,0,0,134,135,1,0,0,0,135,136,
-        1,0,0,0,136,137,5,26,0,0,137,138,3,6,3,0,138,140,1,0,0,0,139,117,
-        1,0,0,0,139,124,1,0,0,0,140,13,1,0,0,0,141,142,7,0,0,0,142,15,1,
-        0,0,0,143,144,5,19,0,0,144,145,3,6,3,0,145,17,1,0,0,0,146,147,5,
-        20,0,0,147,148,5,21,0,0,148,153,3,20,10,0,149,150,5,1,0,0,150,152,
-        3,20,10,0,151,149,1,0,0,0,152,155,1,0,0,0,153,151,1,0,0,0,153,154,
-        1,0,0,0,154,19,1,0,0,0,155,153,1,0,0,0,156,158,3,28,14,0,157,156,
-        1,0,0,0,157,158,1,0,0,0,158,159,1,0,0,0,159,160,3,8,4,0,160,21,1,
-        0,0,0,161,162,5,22,0,0,162,163,5,39,0,0,163,23,1,0,0,0,164,165,7,
-        1,0,0,165,25,1,0,0,0,166,167,7,2,0,0,167,27,1,0,0,0,168,169,7,3,
-        0,0,169,29,1,0,0,0,170,171,7,4,0,0,171,31,1,0,0,0,172,173,5,38,0,
-        0,173,33,1,0,0,0,20,37,40,43,53,58,61,77,82,92,100,106,114,119,122,
-        126,131,134,139,153,157
+        6,1,6,1,6,3,6,127,8,6,1,6,3,6,130,8,6,1,6,3,6,133,8,6,1,6,1,6,1,
+        6,3,6,138,8,6,1,6,3,6,141,8,6,1,6,1,6,1,6,3,6,146,8,6,1,7,1,7,1,
+        8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,5,9,158,8,9,10,9,12,9,161,9,9,1,10,
+        3,10,164,8,10,1,10,1,10,1,11,1,11,1,11,1,12,1,12,1,13,1,13,1,14,
+        1,14,1,15,1,15,1,16,1,16,1,16,0,1,6,17,0,2,4,6,8,10,12,14,16,18,
+        20,22,24,26,28,30,32,0,5,1,0,27,30,3,0,3,3,8,16,31,33,1,0,42,43,
+        1,0,34,35,1,0,36,40,190,0,34,1,0,0,0,2,47,1,0,0,0,4,56,1,0,0,0,6,
+        92,1,0,0,0,8,103,1,0,0,0,10,108,1,0,0,0,12,145,1,0,0,0,14,147,1,
+        0,0,0,16,149,1,0,0,0,18,152,1,0,0,0,20,163,1,0,0,0,22,167,1,0,0,
+        0,24,170,1,0,0,0,26,172,1,0,0,0,28,174,1,0,0,0,30,176,1,0,0,0,32,
+        178,1,0,0,0,34,35,3,2,1,0,35,37,3,10,5,0,36,38,3,16,8,0,37,36,1,
+        0,0,0,37,38,1,0,0,0,38,40,1,0,0,0,39,41,3,18,9,0,40,39,1,0,0,0,40,
+        41,1,0,0,0,41,43,1,0,0,0,42,44,3,22,11,0,43,42,1,0,0,0,43,44,1,0,
+        0,0,44,45,1,0,0,0,45,46,5,0,0,1,46,1,1,0,0,0,47,48,5,17,0,0,48,53,
+        3,4,2,0,49,50,5,1,0,0,50,52,3,4,2,0,51,49,1,0,0,0,52,55,1,0,0,0,
+        53,51,1,0,0,0,53,54,1,0,0,0,54,3,1,0,0,0,55,53,1,0,0,0,56,61,3,6,
+        3,0,57,59,5,23,0,0,58,57,1,0,0,0,58,59,1,0,0,0,59,60,1,0,0,0,60,
+        62,3,32,16,0,61,58,1,0,0,0,61,62,1,0,0,0,62,5,1,0,0,0,63,64,6,3,
+        -1,0,64,65,3,30,15,0,65,66,5,2,0,0,66,67,5,3,0,0,67,68,5,4,0,0,68,
+        93,1,0,0,0,69,70,3,30,15,0,70,71,5,2,0,0,71,77,3,6,3,0,72,73,5,24,
+        0,0,73,74,5,5,0,0,74,75,3,26,13,0,75,76,5,6,0,0,76,78,1,0,0,0,77,
+        72,1,0,0,0,77,78,1,0,0,0,78,79,1,0,0,0,79,80,5,4,0,0,80,93,1,0,0,
+        0,81,83,3,28,14,0,82,81,1,0,0,0,82,83,1,0,0,0,83,84,1,0,0,0,84,93,
+        3,8,4,0,85,86,5,2,0,0,86,87,3,6,3,0,87,88,5,4,0,0,88,93,1,0,0,0,
+        89,93,5,42,0,0,90,93,5,43,0,0,91,93,5,44,0,0,92,63,1,0,0,0,92,69,
+        1,0,0,0,92,82,1,0,0,0,92,85,1,0,0,0,92,89,1,0,0,0,92,90,1,0,0,0,
+        92,91,1,0,0,0,93,100,1,0,0,0,94,95,10,5,0,0,95,96,3,24,12,0,96,97,
+        3,6,3,6,97,99,1,0,0,0,98,94,1,0,0,0,99,102,1,0,0,0,100,98,1,0,0,
+        0,100,101,1,0,0,0,101,7,1,0,0,0,102,100,1,0,0,0,103,106,3,32,16,
+        0,104,105,5,7,0,0,105,107,3,32,16,0,106,104,1,0,0,0,106,107,1,0,
+        0,0,107,9,1,0,0,0,108,109,5,18,0,0,109,114,3,12,6,0,110,111,5,1,
+        0,0,111,113,3,12,6,0,112,110,1,0,0,0,113,116,1,0,0,0,114,112,1,0,
+        0,0,114,115,1,0,0,0,115,11,1,0,0,0,116,114,1,0,0,0,117,122,3,32,
+        16,0,118,120,5,23,0,0,119,118,1,0,0,0,119,120,1,0,0,0,120,121,1,
+        0,0,0,121,123,3,32,16,0,122,119,1,0,0,0,122,123,1,0,0,0,123,146,
+        1,0,0,0,124,129,3,32,16,0,125,127,5,23,0,0,126,125,1,0,0,0,126,127,
+        1,0,0,0,127,128,1,0,0,0,128,130,3,32,16,0,129,126,1,0,0,0,129,130,
+        1,0,0,0,130,132,1,0,0,0,131,133,3,14,7,0,132,131,1,0,0,0,132,133,
+        1,0,0,0,133,134,1,0,0,0,134,135,5,25,0,0,135,140,3,32,16,0,136,138,
+        5,23,0,0,137,136,1,0,0,0,137,138,1,0,0,0,138,139,1,0,0,0,139,141,
+        3,32,16,0,140,137,1,0,0,0,140,141,1,0,0,0,141,142,1,0,0,0,142,143,
+        5,26,0,0,143,144,3,6,3,0,144,146,1,0,0,0,145,117,1,0,0,0,145,124,
+        1,0,0,0,146,13,1,0,0,0,147,148,7,0,0,0,148,15,1,0,0,0,149,150,5,
+        19,0,0,150,151,3,6,3,0,151,17,1,0,0,0,152,153,5,20,0,0,153,154,5,
+        21,0,0,154,159,3,20,10,0,155,156,5,1,0,0,156,158,3,20,10,0,157,155,
+        1,0,0,0,158,161,1,0,0,0,159,157,1,0,0,0,159,160,1,0,0,0,160,19,1,
+        0,0,0,161,159,1,0,0,0,162,164,3,28,14,0,163,162,1,0,0,0,163,164,
+        1,0,0,0,164,165,1,0,0,0,165,166,3,8,4,0,166,21,1,0,0,0,167,168,5,
+        22,0,0,168,169,5,42,0,0,169,23,1,0,0,0,170,171,7,1,0,0,171,25,1,
+        0,0,0,172,173,7,2,0,0,173,27,1,0,0,0,174,175,7,3,0,0,175,29,1,0,
+        0,0,176,177,7,4,0,0,177,31,1,0,0,0,178,179,5,41,0,0,179,33,1,0,0,
+        0,22,37,40,43,53,58,61,77,82,92,100,106,114,119,122,126,129,132,
+        137,140,145,159,163
     ]
 
 class DPDSLParser ( Parser ):
@@ -91,9 +94,9 @@ class DPDSLParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "SELECT", "FROM", "WHERE", "GROUP", "BY", 
                       "LIMIT", "AS", "OF", "JOIN", "ON", "INNER", "LEFT", 
-                      "RIGHT", "FULL", "PRIVATE", "PUBLIC", "SUM", "COUNT", 
-                      "MAX", "AVG", "MIN", "ID", "INT", "FLOAT", "WS", "LINE_COMMENT", 
-                      "BLOCK_COMMENT", "STRING" ]
+                      "RIGHT", "FULL", "AND", "OR", "LIKE", "PRIVATE", "PUBLIC", 
+                      "SUM", "COUNT", "MAX", "AVG", "MIN", "ID", "INT", 
+                      "FLOAT", "STRING", "WS", "LINE_COMMENT", "BLOCK_COMMENT" ]
 
     RULE_query = 0
     RULE_select_clause = 1
@@ -149,24 +152,27 @@ class DPDSLParser ( Parser ):
     LEFT=28
     RIGHT=29
     FULL=30
-    PRIVATE=31
-    PUBLIC=32
-    SUM=33
-    COUNT=34
-    MAX=35
-    AVG=36
-    MIN=37
-    ID=38
-    INT=39
-    FLOAT=40
-    WS=41
-    LINE_COMMENT=42
-    BLOCK_COMMENT=43
+    AND=31
+    OR=32
+    LIKE=33
+    PRIVATE=34
+    PUBLIC=35
+    SUM=36
+    COUNT=37
+    MAX=38
+    AVG=39
+    MIN=40
+    ID=41
+    INT=42
+    FLOAT=43
     STRING=44
+    WS=45
+    LINE_COMMENT=46
+    BLOCK_COMMENT=47
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.13.1")
+        self.checkVersion("4.13.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -389,7 +395,7 @@ class DPDSLParser ( Parser ):
             self.state = 61
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==23 or _la==38:
+            if _la==23 or _la==41:
                 self.state = 58
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -705,7 +711,7 @@ class DPDSLParser ( Parser ):
                 self.state = 82
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==31 or _la==32:
+                if _la==34 or _la==35:
                     self.state = 81
                     self.label()
 
@@ -965,7 +971,8 @@ class DPDSLParser ( Parser ):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a DPDSLParser.Table_sourceContext
             super().__init__(parser)
-            self.alias = None # IdentifierContext
+            self.alias1 = None # IdentifierContext
+            self.alias2 = None # IdentifierContext
             self.copyFrom(ctx)
 
         def identifier(self, i:int=None):
@@ -984,8 +991,11 @@ class DPDSLParser ( Parser ):
         def join_type(self):
             return self.getTypedRuleContext(DPDSLParser.Join_typeContext,0)
 
-        def AS(self):
-            return self.getToken(DPDSLParser.AS, 0)
+        def AS(self, i:int=None):
+            if i is None:
+                return self.getTokens(DPDSLParser.AS)
+            else:
+                return self.getToken(DPDSLParser.AS, i)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterJoinTable" ):
@@ -1009,9 +1019,9 @@ class DPDSLParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_table_source)
         self._la = 0 # Token type
         try:
-            self.state = 139
+            self.state = 145
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,17,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,19,self._ctx)
             if la_ == 1:
                 localctx = DPDSLParser.SimpleTableContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
@@ -1020,7 +1030,7 @@ class DPDSLParser ( Parser ):
                 self.state = 122
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==23 or _la==38:
+                if _la==23 or _la==41:
                     self.state = 119
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
@@ -1040,37 +1050,53 @@ class DPDSLParser ( Parser ):
                 self.enterOuterAlt(localctx, 2)
                 self.state = 124
                 self.identifier()
-                self.state = 126
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & 2013265920) != 0):
-                    self.state = 125
-                    self.join_type()
-
-
-                self.state = 128
-                self.match(DPDSLParser.JOIN)
                 self.state = 129
-                self.identifier()
-                self.state = 134
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==23 or _la==38:
-                    self.state = 131
+                if _la==23 or _la==41:
+                    self.state = 126
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if _la==23:
-                        self.state = 130
+                        self.state = 125
                         self.match(DPDSLParser.AS)
 
 
-                    self.state = 133
-                    localctx.alias = self.identifier()
+                    self.state = 128
+                    localctx.alias1 = self.identifier()
 
 
-                self.state = 136
+                self.state = 132
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & 2013265920) != 0):
+                    self.state = 131
+                    self.join_type()
+
+
+                self.state = 134
+                self.match(DPDSLParser.JOIN)
+                self.state = 135
+                self.identifier()
+                self.state = 140
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if _la==23 or _la==41:
+                    self.state = 137
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+                    if _la==23:
+                        self.state = 136
+                        self.match(DPDSLParser.AS)
+
+
+                    self.state = 139
+                    localctx.alias2 = self.identifier()
+
+
+                self.state = 142
                 self.match(DPDSLParser.ON)
-                self.state = 137
+                self.state = 143
                 self.expression(0)
                 pass
 
@@ -1130,7 +1156,7 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 141
+            self.state = 147
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 2013265920) != 0)):
                 self._errHandler.recoverInline(self)
@@ -1186,9 +1212,9 @@ class DPDSLParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_where_clause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 143
+            self.state = 149
             self.match(DPDSLParser.WHERE)
-            self.state = 144
+            self.state = 150
             self.expression(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -1246,21 +1272,21 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 146
+            self.state = 152
             self.match(DPDSLParser.GROUP)
-            self.state = 147
-            self.match(DPDSLParser.BY)
-            self.state = 148
-            self.group_item()
             self.state = 153
+            self.match(DPDSLParser.BY)
+            self.state = 154
+            self.group_item()
+            self.state = 159
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==1:
-                self.state = 149
-                self.match(DPDSLParser.T__0)
-                self.state = 150
-                self.group_item()
                 self.state = 155
+                self.match(DPDSLParser.T__0)
+                self.state = 156
+                self.group_item()
+                self.state = 161
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1315,15 +1341,15 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 157
+            self.state = 163
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==31 or _la==32:
-                self.state = 156
+            if _la==34 or _la==35:
+                self.state = 162
                 self.label()
 
 
-            self.state = 159
+            self.state = 165
             self.column_ref()
         except RecognitionException as re:
             localctx.exception = re
@@ -1373,9 +1399,9 @@ class DPDSLParser ( Parser ):
         self.enterRule(localctx, 22, self.RULE_limit_clause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 161
+            self.state = 167
             self.match(DPDSLParser.LIMIT)
-            self.state = 162
+            self.state = 168
             self.match(DPDSLParser.INT)
         except RecognitionException as re:
             localctx.exception = re
@@ -1393,6 +1419,14 @@ class DPDSLParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+        def AND(self):
+            return self.getToken(DPDSLParser.AND, 0)
+
+        def OR(self):
+            return self.getToken(DPDSLParser.OR, 0)
+
+        def LIKE(self):
+            return self.getToken(DPDSLParser.LIKE, 0)
 
         def getRuleIndex(self):
             return DPDSLParser.RULE_operator
@@ -1421,9 +1455,9 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 164
+            self.state = 170
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 130824) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 15032516360) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1477,9 +1511,9 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 166
+            self.state = 172
             _la = self._input.LA(1)
-            if not(_la==39 or _la==40):
+            if not(_la==42 or _la==43):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1533,9 +1567,9 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 168
+            self.state = 174
             _la = self._input.LA(1)
-            if not(_la==31 or _la==32):
+            if not(_la==34 or _la==35):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1598,9 +1632,9 @@ class DPDSLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 170
+            self.state = 176
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 266287972352) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 2130303778816) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1650,7 +1684,7 @@ class DPDSLParser ( Parser ):
         self.enterRule(localctx, 32, self.RULE_identifier)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 172
+            self.state = 178
             self.match(DPDSLParser.ID)
         except RecognitionException as re:
             localctx.exception = re
